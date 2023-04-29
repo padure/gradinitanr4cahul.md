@@ -1,0 +1,36 @@
+body{
+    font-family: 'Nunito', sans-serif;
+}
+// Meniul
+.top-header{
+    height: 50px;
+}
+.logo img{
+    width: 150px;
+}
+.main-nav{
+    .navbar-toggler{
+        border: 1px solid $color;
+    }
+    .bars{
+        color: $color;
+    }
+    .nav-link{
+        font-size: $fs;
+        color: $color-sec;
+    }
+    .active{
+        color: $color!important;
+        font-weight: 900;
+    }
+}
+@media screen and (max-width: 992px) {
+    .main-nav{
+        .nav-link{
+            font-size: $fs-md;
+        }
+        .logo img{
+            width: 100px;
+        }
+    }
+}

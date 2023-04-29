@@ -1,12 +1,5 @@
 <?php
+    Auth::routes();
+    require_once 'frontend/web.php';
+    require_once 'backend/web.php';
 
-use Illuminate\Support\Facades\Route;
-
-
-Route::get('/', function () {
-    return view('frontend.index');
-});
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
