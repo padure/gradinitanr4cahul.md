@@ -319,6 +319,18 @@ return [
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
+            'text'      => 'Home page',
+            'icon'      => 'fas fa-home',
+            'icon_color' => 'red',
+            'submenu'   => [
+                [
+                    'text' => 'Slideshow',
+                    'url'  => 'slideshows',
+                    'icon_color' => 'yellow',
+                ],
+            ],
+        ],
+        [
             'text'    => 'multilevel',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [

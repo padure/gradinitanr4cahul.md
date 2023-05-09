@@ -5,15 +5,28 @@ namespace App\Http\Controllers;
 use App\Models\Slideshow;
 use App\Http\Requests\StoreSlideshowRequest;
 use App\Http\Requests\UpdateSlideshowRequest;
+use App\Repositories\Slideshow\SlideshowRepository;
 
 class SlideshowController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct(
+        protected SlideshowRepository $slideshowRepository,
+    )
+    {}
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $slideshows = resolve(SlideshowRepository::class)->getAll();
+        return view('backend.homepage.index')
+            ->with('slideshows', $slideshows);
     }
 
     /**
@@ -21,7 +34,7 @@ class SlideshowController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.homepage.create');
     }
 
     /**
@@ -29,7 +42,8 @@ class SlideshowController extends Controller
      */
     public function store(StoreSlideshowRequest $request)
     {
-        //
+        $this->slideshowRepository->save($request->all());
+        return redirect()->route('slideshows.index');
     }
 
     /**

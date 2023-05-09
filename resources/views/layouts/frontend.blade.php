@@ -4,8 +4,10 @@
     <meta charset="utf-8">
     <title>{{ config('app.name', 'Zambetul')}} @yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    <meta name="description"
+          content="@yield('meta_description', config('app.name', 'Zambetul'))">
+    <meta name="keywords" content="@yield('meta_keywords', config('app.name', 'Zambetul'))">
+    @yield('meta')
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
@@ -22,9 +24,10 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ asset('css/style.css')}}">
     <link rel="stylesheet" href="{{ asset('css/main.css')}}">
+    @stack('styles')
 </head>
 <body>
-  <div class="container-xxl bg-white p-0">
+  <div class="container-fluid bg-white p-0">
     <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
@@ -54,17 +57,6 @@
                         <a href="{{ route('gallery.index')}}" class="dropdown-item">Galerie</a>
                     </div>
                 </div>
-                {{-- <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Regimul zilei</a>
-                    <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
-                        <a href="facility.html" class="dropdown-item">School Facilities</a>
-                        <a href="team.html" class="dropdown-item">Popular Teachers</a>
-                        <a href="call-to-action.html" class="dropdown-item">Become A Teachers</a>
-                        <a href="appointment.html" class="dropdown-item">Make Appointment</a>
-                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                        <a href="404.html" class="dropdown-item">404 Error</a>
-                    </div>
-                </div> --}}
                 <a href="{{ route('regime.index')}}" class="nav-item nav-link">Regimul zilei</a>
                 <a href="{{ route('menu.index')}}" class="nav-item nav-link">Meniul</a>
                 <a href="{{ route('contacts.index')}}" class="nav-item nav-link">Contacte</a>
@@ -171,6 +163,6 @@
 
   <!-- Template Javascript -->
   <script src="{{ asset('js/main.js') }}"></script>
-  
+  @stack('scripts')
 </body>
 </html>

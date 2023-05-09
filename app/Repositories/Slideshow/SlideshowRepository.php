@@ -18,10 +18,22 @@ class SlideshowRepository implements SlideshowInterface
         return $this->slideshow::query()->get();
     }
 
-
     public function find($id)
     {
         return $this->slideshow->findUser($id);
+    }
+    
+    public function save($slideshow)
+    {
+        $extension  = $slideshow['image']->getClientOriginalExtension();
+        $fileName   = $slideshow['image']->getClientOriginalName();
+        $slide              = new Slideshow();
+        $slide->title       = $slideshow['title'];
+        $slide->description = $slideshow['description'];
+        $slide->image       = time().'.'.$extension;
+        $slideshow['image']->move(public_path('img/uploads/slideshow/'), $slide->image);
+        $slide->save();
+        return back();
     }
 
 
