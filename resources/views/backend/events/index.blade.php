@@ -4,8 +4,8 @@
 
 @section('content_header')
     <div class="d-flex justify-content-between">
-        <h1>Slideshows</h1>
-        <a href="{{ route('slideshows.create')}}" class="btn btn-success btn-sm">Adaugă</a>
+        <h1>Evenimente</h1>
+        <a href="{{ route('events.create')}}" class="btn btn-success btn-sm">Adaugă</a>
     </div>
 @stop
 
@@ -21,7 +21,7 @@
       </tr>
     </thead>
     <tbody>
-      @forelse ($slideshows as $slideshow)
+      {{-- @forelse ($slideshows as $slideshow)
         <tr>
             <th scope="row">{{ $loop->iteration }}</th>
             <td>{{ $slideshow->title }}</td>
@@ -32,16 +32,13 @@
             <td>
                 <a href="{{ route('slideshows.edit', [ 'slideshow'=>$slideshow->id ])}}" 
                    class="btn btn-sm text-white btn-warning">Edit</a>
-                <form action="{{ route('slideshows.destroy', [ 'slideshow' => $slideshow->id ]) }}" method="POST">
-                  @method('delete')
-                  @csrf
-                  <button class="btn btn-sm text-white btn-danger" type="submit">Sterge</button>
-                </form>
+                <a href="{{ route('slideshows.destroy', [ 'slideshow' => $slideshow->id ]) }}" 
+                   class="btn btn-sm text-white btn-danger">Delete</a>
             </td>
         </tr>
       @empty
           <p>Nu sunt slideshow-uri in baza de date</p>
-      @endforelse
+      @endforelse --}}
     </tbody>
   </table>
 @stop

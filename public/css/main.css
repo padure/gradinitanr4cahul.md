@@ -1,6 +1,12 @@
 .logo img{
     width: 120px;
 }
+.img-footer{
+    width: 70px;
+    height: 55px;
+    object-fit: cover;
+    object-position: center;
+}
 @media screen and (max-width: 992px) {
     .logo img{
         width: 100px;

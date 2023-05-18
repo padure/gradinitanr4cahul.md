@@ -302,30 +302,33 @@ return [
         ],
 
         // Sidebar items:
+        ['header' => 'SETARI PAGINI'],
         [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text'      => 'Home page',
+            'text'      => 'Pagina Acasa',
             'icon'      => 'fas fa-home',
-            'icon_color' => 'red',
             'submenu'   => [
                 [
                     'text' => 'Slideshow',
                     'url'  => 'slideshows',
+                    'icon' => 'fas fa-image',
+                    'icon_color' => 'yellow',
+                ],
+            ],
+        ],
+        [
+            'text'      => 'Activitati',
+            'icon'      => 'fas fa-th-large',
+            'submenu'   => [
+                [
+                    'text' => 'Evenimente',
+                    'url'  => 'events',
+                    'icon'      => 'fas fa-calendar-week',
+                    'icon_color' => 'yellow',
+                ],
+                [
+                    'text' => 'Galerie',
+                    'url'  => 'gallery',
+                    'icon'      => 'fas fa-images',
                     'icon_color' => 'yellow',
                 ],
             ],
@@ -383,6 +386,17 @@ return [
             'text'       => 'information',
             'icon_color' => 'cyan',
             'url'        => '#',
+        ],
+        ['header' => 'account_settings'],
+        [
+            'text' => 'profile',
+            'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'change_password',
+            'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-lock',
         ],
     ],
 

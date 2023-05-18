@@ -31,7 +31,7 @@ class SlideshowRepository implements SlideshowInterface
         $slide->title       = $slideshow['title'];
         $slide->description = $slideshow['description'];
         $slide->image       = time().'.'.$extension;
-        $slideshow['image']->move(public_path('img/uploads/slideshow/'), $slide->image);
+        $slideshow['image']->move(public_path(env('UPLOADS_SLIDESHOW')), $slide->image);
         $slide->save();
         return back();
     }

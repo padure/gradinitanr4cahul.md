@@ -6,10 +6,10 @@ import $ from './jquery.js';
 import './easing';
 import 'waypoints/src/waypoint';
 import 'owl.carousel';
+
 // import '../css/app.css';
 // Initiate the wowjs
 new WOW().init();
-
 
 // Spinner
 var spinner = function () {

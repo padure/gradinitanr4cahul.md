@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Slideshow;
 use App\Repositories\Slideshow\SlideshowRepository;
+use App\Models\Gallery;
+use App\Models\GalleryCategory;
 
 class FrontendController extends Controller
 {
@@ -31,8 +33,12 @@ class FrontendController extends Controller
     public function event(){
         return view('frontend.event.event');
     }
-    public function gallery(){
-        return view('frontend.gallery.gallery');
+    public function galerie(){
+        $categories = GalleryCategory::get();
+        $images = Gallery::get();
+        return view('frontend.gallery.gallery')
+            ->with('categories', $categories)
+            ->with('images', $images);
     }
     public function menu(){
         return view('frontend.menu.menu');
