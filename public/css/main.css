@@ -67,5 +67,13 @@
     }
     .galerie{
         grid-gap: .3rem;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-rows: 1fr;
+    }
+    .galerie img{
+        grid-column-start: initial!important;
+        grid-column-end: initial!important;
+        grid-row-start: initial!important;
+        grid-row-end: initial!important;
     }
 }

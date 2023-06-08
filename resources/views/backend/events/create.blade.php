@@ -27,11 +27,30 @@
   </div>
   <div class="mb-3">
     <label for="description">Descriere</label>
-    <textarea name="event" id="event_construct"></textarea>
+    <textarea name="description" id="description" class="form-control" placeholder="Descriere"></textarea>
   </div>
   <div class="mb-3">
     <label for="image">Imagine</label>
     <input type="file" class="form-control" name="image" id="image" placeholder="Imagine">
+  </div>
+  <div class="mb-3">
+    <label for="event_construct">Conținutul noutății</label>
+    <textarea name="body" id="event_construct" placeholder="Scrieți aici conținutul noutății"></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="autor">Autor</label>
+    <input type="text" class="form-control" name="autor" id="autor" placeholder="Autor">
+  </div>
+  <div class="mb-3">
+    <label for="event_category_id">Categorie</label>
+    <select 
+      class="form-control" 
+      name="event_category_id" 
+      id="event_category_id">
+      @foreach ($eventCategories as $category)
+        <option value="{{ $category->id }}">{{ $category->nume }}</option>
+      @endforeach
+    </select>
   </div>
   <div class="mb-3">
     <button class="btn btn-sm btn-success" type="submit">Salveaza</button>
