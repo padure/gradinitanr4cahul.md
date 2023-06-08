@@ -24,7 +24,7 @@ class StoreSlideshowRequest extends FormRequest
         return [
             'title' => 'required',
             'description' => 'required',
-            'image' => 'required'
+            'image' => 'required|image|mimes:jpeg,png,jpg'
         ];
     }
 }

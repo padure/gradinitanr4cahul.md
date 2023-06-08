@@ -6,6 +6,7 @@ import $ from './jquery.js';
 import './easing';
 import 'waypoints/src/waypoint';
 import 'owl.carousel';
+import ClassicEditor from './ckeditor';
 
 // import '../css/app.css';
 // Initiate the wowjs
@@ -82,3 +83,13 @@ $(".testimonial-carousel").owlCarousel({
         }
     }
 });
+
+// ClassicEditor
+// ClassicEditor
+//     .create(document.querySelector('#event_construct'))
+//     .then(editor => {
+//         console.log('Editor was initialized', editor);
+//     })
+//     .catch(error => {
+//         console.error(error.stack);
+//     });

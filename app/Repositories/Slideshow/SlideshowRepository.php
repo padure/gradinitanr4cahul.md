@@ -2,6 +2,7 @@
 namespace App\Repositories\Slideshow;
 
 use App\Repositories\Slideshow\SlideshowInterface as SlideshowInterface;
+use Intervention\Image\ImageManagerStatic as Image;
 use App\Models\Slideshow;
 
 class SlideshowRepository implements SlideshowInterface
@@ -31,8 +32,10 @@ class SlideshowRepository implements SlideshowInterface
         $slide->title       = $slideshow['title'];
         $slide->description = $slideshow['description'];
         $slide->image       = time().'.'.$extension;
-        $slideshow['image']->move(public_path(env('UPLOADS_SLIDESHOW')), $slide->image);
         $slide->save();
+        Image::make($slideshow['image'])
+                ->fit(1366, 768)
+                ->save(public_path(env('UPLOADS_SLIDESHOW')) . $slide->image);
         return back();
     }
 

@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'image_limit' => 6,
+    'image_limit' => 7,
 ];

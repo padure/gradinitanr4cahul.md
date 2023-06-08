@@ -71,7 +71,7 @@
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
-            <div class="row g-5">
+            <div class="row g-5 m-auto">
                 <div class="col-lg-3 col-md-6">
                     <h3 class="text-white mb-4">Aici ne găsiți</h3>
                     <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
@@ -93,6 +93,7 @@
                     <a class="btn btn-link text-white-50" href="">Termeni & Condiții</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
+                    @if ($lastPhotos->count() > 0)
                     <h3 class="text-white mb-4">Pozele noastre</h3>
                     <div class="row g-2 pt-2">
                         @foreach ($lastPhotos as $foto)
@@ -101,14 +102,7 @@
                             </div>
                         @endforeach
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h3 class="text-white mb-4">Newsletter</h3>
-                    <p>Vrei să fii la curent despre activitățile noastre?</p>
-                    <div class="position-relative mx-auto" style="max-width: 400px;">
-                        <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Email-ul tău">
-                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Aboneazăte</button>
-                    </div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -132,7 +126,6 @@
         </div>
     </div>
     <!-- Footer End -->
-
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>

@@ -6,6 +6,7 @@ use App\Models\Slideshow;
 use App\Http\Requests\StoreSlideshowRequest;
 use App\Http\Requests\UpdateSlideshowRequest;
 use App\Repositories\Slideshow\SlideshowRepository;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class SlideshowController extends Controller
 {
@@ -79,7 +80,9 @@ class SlideshowController extends Controller
             $extension  = $request->image->getClientOriginalExtension();
             $fileName   = $request->image->getClientOriginalName();
             $slideshow->image       = time().'.'.$extension;
-            $request->image->move(public_path(env('UPLOADS_SLIDESHOW')), $slideshow->image);
+            Image::make($request->image)
+                ->fit(1366, 768)
+                ->save(public_path(env('UPLOADS_SLIDESHOW')) . $slideshow->image);
         }
         $slideshow->save();
         return redirect()->route('slideshows.index');
