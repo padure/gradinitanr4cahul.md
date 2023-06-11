@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('description');
+            $table->text('description');
             $table->string('image');
-            $table->text('body');
+            $table->longText('body');
             $table->string('autor');
             $table->unsignedBigInteger('event_category_id');
             $table->foreign('event_category_id')

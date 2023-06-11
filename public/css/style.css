@@ -104,7 +104,12 @@ h6,
     font-weight: 500;
     outline: none;
 }
-
+.show-nav {
+    top: 100%;
+    visibility: visible;
+    transition: .5s;
+    opacity: 1;
+}
 .navbar .navbar-nav .nav-link:hover,
 .navbar .navbar-nav .nav-link.active {
     color: var(--primary);
@@ -147,17 +152,17 @@ h6,
         top: calc(100% - 15px);
         margin-top: 0;
         opacity: 0;
-        visibility: hidden;
+        /* visibility: hidden; */
         transition: .5s;
         
     }
 
-    .navbar .nav-item:hover .dropdown-menu {
+    /* .navbar .nav-item:hover .dropdown-menu {
         top: 100%;
         visibility: visible;
         transition: .5s;
         opacity: 1;
-    }
+    } */
 }
 
 

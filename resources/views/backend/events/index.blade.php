@@ -21,32 +21,39 @@
       </tr>
     </thead>
     <tbody>
-      {{-- @forelse ($slideshows as $slideshow)
+      @forelse ($events as $event)
         <tr>
             <th scope="row">{{ $loop->iteration }}</th>
-            <td>{{ $slideshow->title }}</td>
-            <td>{{ $slideshow->description }}</td>
+            <td>{{ $event->title }}</td>
+            <td>{{ $event->description }}</td>
             <td>
-              <img class="w-25" src="img/uploads/slideshow/{{ $slideshow->image }}" alt="{{ $slideshow->title }}">
+              <img src="{{ asset(env('UPLOADS_EVENT').$event->image) }}" alt="{{ $event->title }}">
             </td>
-            <td>
-                <a href="{{ route('slideshows.edit', [ 'slideshow'=>$slideshow->id ])}}" 
-                   class="btn btn-sm text-white btn-warning">Edit</a>
-                <a href="{{ route('slideshows.destroy', [ 'slideshow' => $slideshow->id ]) }}" 
-                   class="btn btn-sm text-white btn-danger">Delete</a>
+            <td class="w-25">
+                <a href="{{ route('events.edit', [ 'event'=>$event->id ])}}" 
+                   class="btn text-warning">
+                   <i class="fas fa-edit"></i> 
+                </a>
+                <a href="{{ route('events.show', [ 'event'=>$event->id ])}}" 
+                  class="btn text-dark">
+                  <i class="fas fa-eye"></i>
+                </a>
             </td>
         </tr>
       @empty
           <p>Nu sunt slideshow-uri in baza de date</p>
-      @endforelse --}}
+      @endforelse
     </tbody>
   </table>
 @stop
 
 @section('css')
     <style>
-      .img-box{
-        width: 50px;
+      td img{
+        width: 150px;
+      }
+      a{
+        display: inline;
       }
     </style>
 @stop

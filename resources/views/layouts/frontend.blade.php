@@ -20,7 +20,7 @@
     <!-- Libraries Stylesheet -->
     <link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet">
     <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
-    <!-- Scripts -->
+    <!-- styles -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ asset('css/style.css')}}">
     <link rel="stylesheet" href="{{ asset('css/main.css')}}">
@@ -47,19 +47,19 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto">
-                <a href="{{ route('home.index')}}" class="nav-item nav-link active">Acasă</a>
-                <a href="{{ route('about.index')}}" class="nav-item nav-link">Despre noi</a>
-                <a href="{{ route('team.index')}}" class="nav-item nav-link">Echipa noastră</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Activități</a>
+                <a href="{{ route('home.index')}}" class="nav-item nav-link {{ $home??"" }}">Acasă</a>
+                <a href="{{ route('about.index')}}" class="nav-item nav-link {{ $about??"" }}">Despre noi</a>
+                <a href="{{ route('team.index')}}" class="nav-item nav-link {{ $team??"" }}">Echipa noastră</a>
+                <div class="nav-item dropdown" id="dropdown-link">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Activități</a>
                     <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
                         <a href="{{ route('event.index')}}" class="dropdown-item">Evenimente</a>
                         <a href="{{ route('galerie.index')}}" class="dropdown-item">Galerie</a>
                     </div>
                 </div>
-                <a href="{{ route('regime.index')}}" class="nav-item nav-link">Regimul zilei</a>
-                <a href="{{ route('menu.index')}}" class="nav-item nav-link">Meniul</a>
-                <a href="{{ route('contacts.index')}}" class="nav-item nav-link">Contacte</a>
+                <a href="{{ route('regime.index')}}" class="nav-item nav-link {{ $regime??"" }}">Regimul zilei</a>
+                <a href="{{ route('menu.index')}}" class="nav-item nav-link {{ $menu??"" }}">Meniul</a>
+                <a href="{{ route('contacts.index')}}" class="nav-item nav-link {{ $contacts??"" }}">Contacte</a>
             </div>
             {{-- <a href="" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Join Us<i class="fa fa-arrow-right ms-3"></i></a> --}}
         </div>
@@ -86,11 +86,11 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h3 class="text-white mb-4">Scurtaturi</h3>
-                    <a class="btn btn-link text-white-50" href="">Echipa noastră</a>
-                    <a class="btn btn-link text-white-50" href="">Contacte</a>
-                    <a class="btn btn-link text-white-50" href="">Meniul</a>
-                    <a class="btn btn-link text-white-50" href="">Evenimente</a>
-                    <a class="btn btn-link text-white-50" href="">Termeni & Condiții</a>
+                    <a class="btn btn-link text-white-50" href="{{ route('team.index')}}">Echipa noastră</a>
+                    <a class="btn btn-link text-white-50" href="{{ route('contacts.index')}}">Contacte</a>
+                    <a class="btn btn-link text-white-50" href="{{ route('menu.index')}}">Meniul</a>
+                    <a class="btn btn-link text-white-50" href="{{ route('event.index')}}">Evenimente</a>
+                    <a class="btn btn-link text-white-50" href="#">Termeni & Condiții</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     @if ($lastPhotos->count() > 0)
@@ -98,7 +98,7 @@
                     <div class="row g-2 pt-2">
                         @foreach ($lastPhotos as $foto)
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1 img-footer" src="{{ env('UPLOADS_GALLERY') . $foto->image }}" alt="Lipseste">
+                                <img class="img-fluid rounded bg-light p-1 img-footer" src="{{ asset(env('UPLOADS_GALLERY') . $foto->image) }}" alt="Lipseste">
                             </div>
                         @endforeach
                     </div>
@@ -132,12 +132,12 @@
   </div>
   <!-- JavaScript Libraries -->
   <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
+  <script src="{{ asset('https://unpkg.com/@popperjs/core@2') }}"></script>
   <script src="{{ asset('lib/bootstrap/dist/js/bootstrap.js') }}"></script>
   <script src="{{ asset('lib/wow/wow.min.js') }}"></script>
   <script src="{{ asset('lib/easing/easing.min.js') }}"></script>
   <script src="{{ asset('lib/waypoints/waypoints.min.js') }}"></script>
   <script src="{{ asset('lib/owlcarousel/owl.carousel.min.js') }}"></script>
-
   <!-- Template Javascript -->
   <script src="{{ asset('js/main.js') }}"></script>
   @stack('scripts')

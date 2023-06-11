@@ -82,6 +82,6 @@ class GalleryController extends Controller
      */
     public function destroy(Gallery $gallery)
     {
-        //
+        
     }
 }

@@ -7,6 +7,11 @@
         <h1>Galerie</h1>
         <a href="{{ route('gallery.create')}}" class="btn btn-success btn-sm">Adaugă</a>
     </div>
+    @if(session('success'))
+      <div class="alert alert-danger">
+          {{ session('success') }}
+      </div>
+    @endif
 @stop
 
 @section('content')
@@ -32,8 +37,13 @@
               @endforelse
             </td>
             <td>
-                <a href="{{ route('gallery.category.delete', [ 'gallery_category' => $category->id ]) }}" 
-                   class="btn btn-sm text-white btn-danger">Delete</a>
+                <form style="display: inline;"
+                  action="{{ route('gallery_category.delete', [ 'gallery_category' => $category->id ]) }}"
+                  method="POST">
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
             </td>
         </tr>
       @empty

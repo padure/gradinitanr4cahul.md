@@ -1,5 +1,11 @@
 @extends('layouts.frontend')
 @section('title', '| Contacte')
+@php
+    $contacts = "";
+    if(request()->routeIs('contacts.index')) {
+        $contacts = "active";
+    }
+@endphp
 @section('content')
     <!-- Page Header End -->
     <div class="container-xxl py-5 page-header position-relative mb-5">

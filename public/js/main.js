@@ -76,6 +76,20 @@
             }
         }
     });
+    // Navbar
     
+    $("#dropdown-link").click( ()=>{
+        const drop = document.querySelector('.navbar .nav-item .dropdown-menu')
+        let flag = drop.hasAttribute('data-bs-popper')
+        if (flag){
+            drop.style.visibility = "visible"
+            drop.style.top = "100%"
+            drop.style.transition = ".5s"
+            drop.style.opacity = "1"
+        }else{
+            drop.removeAttribute('style')
+        }
+    })
+        
 })(jQuery);
 

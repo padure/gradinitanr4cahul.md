@@ -26,8 +26,14 @@
             <td>
                 <a href="{{ route('event-category.edit', [ 'event_category'=>$category->id ])}}" 
                    class="btn btn-sm text-white btn-warning">Edit</a>
-                <a href="{{ route('event-category.destroy', [ 'event_category' => $category->id ]) }}" 
-                   class="btn btn-sm text-white btn-danger">Delete</a>
+                <form style="display: inline;"
+                  action="{{ route('event-category.destroy', [ 'event_category' => $category->id ]) }}"
+                  method="POST">
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
+                  
             </td>
         </tr>
       @empty

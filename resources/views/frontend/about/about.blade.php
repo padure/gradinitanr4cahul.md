@@ -1,5 +1,11 @@
 @extends('layouts.frontend')
 @section('title', '| Despre noi')
+@php
+    $about = "";
+    if(request()->routeIs('about.index')) {
+        $about = "active";
+    }
+@endphp
 @section('content')
     <!-- Page Header End -->
     <div class="container-xxl py-5 page-header position-relative mb-5">

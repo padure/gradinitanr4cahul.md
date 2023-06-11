@@ -15,7 +15,7 @@
         Route::resource('event-category', EventCategoryController::class);
         Route::post('/gallery-category', [GalleryCategoryController::class, 'store'])
             ->name('gallery.category');
-        Route::delete('gallery', [GalleryCategoryController::class, 'destroy'])
-            ->name('gallery.category.delete');
+        Route::delete('gallery-category/{gallery_category}', [GalleryCategoryController::class, 'destroy'])
+            ->name('gallery_category.delete');
         
     });
