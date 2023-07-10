@@ -10,6 +10,10 @@ use App\Repositories\Slideshow\SlideshowRepository;
 use App\Repositories\Event\EventRepository;
 use App\Models\Gallery;
 use App\Models\GalleryCategory;
+use App\Repositories\Team\TeamRepository;
+use App\Repositories\Menu\MenuRepository;
+use App\Repositories\Group\GroupRepository;
+use App\Repositories\Section\SectionRepository;
 
 class FrontendController extends Controller
 {
@@ -21,15 +25,26 @@ class FrontendController extends Controller
     public function __construct(
         protected SlideshowRepository $slideshowRepository,
         protected EventRepository $eventRepository,
+        protected TeamRepository $teamRepository,
+        protected MenuRepository $menuRepository,
+        protected GroupRepository $groupRepository,
+        protected SectionRepository $sectionRepository,
     )
     {}
     public function index(){
         $slideshows = $this->slideshowRepository->getAll();
+        $groups = $this->groupRepository->getAll();
         return view('frontend.home.index')
-            ->with('slideshows', $slideshows);
+            ->with('slideshows', $slideshows)
+            ->with('groups', $groups);
     }
     public function about(){
         return view('frontend.about.about');
+    }
+    public function law(){
+        $sections = $this->sectionRepository->getAll();
+        return view('frontend.law.law')
+            ->with('sections', $sections);
     }
     public function contacts(){
         return view('frontend.contacts.contacts');
@@ -65,12 +80,16 @@ class FrontendController extends Controller
             ->with('images', $images);
     }
     public function menu(){
-        return view('frontend.menu.menu');
+        $menu = $this->menuRepository->getAll();
+        return view('frontend.menu.menu')
+        ->with('menuFile', $menu->last());
     }
     public function regime(){
         return view('frontend.regime.regime');
     }
     public function team(){
-        return view('frontend.team.team');
+        $members = resolve(TeamRepository::class)->getAll();
+        return view('frontend.team.team')
+            ->with('members', $members);
     }
 }

@@ -47,7 +47,7 @@ class EventRepository implements EventInterface
         $data->body = $event['body'];
         $data->autor = $event['autor'];
         $data->event_category_id = $event['event_category_id'];
-        $data->image       = time().'.'.$extension;
+        $data->image       = md5(bcrypt(date('l jS \of F Y h:i:s A'))).'.'.$extension;
         $data->save();
         Image::make($event['image'])
                 ->fit(1366, 768)

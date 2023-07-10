@@ -2,21 +2,14 @@
 @section('title', $event->title)
 @php
     use Illuminate\Support\Str;
+    $eventLink = "";
+    if(request()->routeIs('event.show')) {
+        $eventLink = "active";
+    }
 @endphp
 @section('content')
     <!-- Page Header End -->
-    <div class="container-xxl py-5 page-header position-relative mb-5">
-        <div class="container py-5">
-            <h1 class="display-2 text-white animated slideInDown mb-4">Evenimente</h1>
-            <nav aria-label="breadcrumb animated slideInDown">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ route('home.index') }}">Acasă</a></li>
-                    <li class="breadcrumb-item text-white active" aria-current="page">
-                        <a class="text-white" href="{{ route('event.index')}}">Evenimente</a></li>
-                </ol>
-            </nav>
-        </div>
-    </div>
+    @include( 'frontend.partial.header', ['data' => 'Eveniment', 'event' => $event] )
     <!-- Page Header End -->
 
     <!-- Blog Start -->
@@ -104,8 +97,8 @@
         text-align: justify;
         line-height: 2;
     }
-    p > img, figure > img{
-        width: 100%;
+    p > img, figure > img, .image_resized{
+        width: 100%!important;
     }
     .post-body li{
         text-align: justify;

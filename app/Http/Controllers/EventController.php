@@ -103,6 +103,11 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        //
+        if (file_exists(env('UPLOADS_EVENT') . $event->image)) {
+            unlink(env('UPLOADS_EVENT') . $event->image);
+        }
+        $event->delete();
+        return redirect()->route('events.index')
+        ->with('success', 'Înregistrare ștearsă cu succes.');
     }
 }

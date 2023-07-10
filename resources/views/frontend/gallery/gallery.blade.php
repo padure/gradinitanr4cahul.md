@@ -6,6 +6,10 @@
 @section('content')
     @php
         use Illuminate\Support\Str;
+        $eventLink = "";
+        if(request()->routeIs('galerie.index')) {
+            $eventLink = "active";
+        }
     @endphp
     <!-- Gallery Start -->
     <div class="container-fluid pt-5 pb-3">

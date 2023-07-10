@@ -31,7 +31,7 @@ class SlideshowRepository implements SlideshowInterface
         $slide              = new Slideshow();
         $slide->title       = $slideshow['title'];
         $slide->description = $slideshow['description'];
-        $slide->image       = time().'.'.$extension;
+        $slide->image       = md5(bcrypt(date('l jS \of F Y h:i:s A'))).'.'.$extension;
         $slide->save();
         Image::make($slideshow['image'])
                 ->fit(1366, 768)

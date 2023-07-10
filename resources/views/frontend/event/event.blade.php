@@ -2,20 +2,17 @@
 @section('title', '| Evenimente')
 @php
     use Illuminate\Support\Str;
+    $eventLink = "";
+    if(request()->routeIs('event.index')) {
+        $eventLink = "active";
+    }
+    if(request()->routeIs('event.category')) {
+        $eventLink = "active";
+    }
 @endphp
 @section('content')
     <!-- Page Header End -->
-    <div class="container-xxl py-5 page-header position-relative mb-5">
-        <div class="container py-5">
-            <h1 class="display-2 text-white animated slideInDown mb-4">Evenimente</h1>
-            <nav aria-label="breadcrumb animated slideInDown">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ route('home.index') }}">Acasa</a></li>
-                    <li class="breadcrumb-item text-white active" aria-current="page">Evenimente</li>
-                </ol>
-            </nav>
-        </div>
-    </div>
+    @include( 'frontend.partial.header', ['data' => 'Evenimente'] )
     <!-- Page Header End -->
 
     <!-- Blog Start -->

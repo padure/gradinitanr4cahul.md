@@ -76,20 +76,25 @@
             }
         }
     });
+
     // Navbar
-    
-    $("#dropdown-link").click( ()=>{
-        const drop = document.querySelector('.navbar .nav-item .dropdown-menu')
-        let flag = drop.hasAttribute('data-bs-popper')
-        if (flag){
-            drop.style.visibility = "visible"
-            drop.style.top = "100%"
-            drop.style.transition = ".5s"
-            drop.style.opacity = "1"
-        }else{
-            drop.removeAttribute('style')
-        }
+    $(".dropdown-link").each(function() {
+        $(this).click( ()=>{
+            const dropDownElements = $(".dropdown-menu")
+            dropDownElements.each( function () {
+                $(this)[0].removeAttribute('style')
+            })
+            const drop = $(this).children('.dropdown-menu')
+            let flag = drop[0].hasAttribute('data-bs-popper')
+            if (flag){
+                drop[0].style.visibility = "visible"
+                drop[0].style.top = "100%"
+                drop[0].style.transition = ".5s"
+                drop[0].style.opacity = "1"
+            }else{
+                drop[0].removeAttribute('style')
+            }
+        })
     })
-        
 })(jQuery);
 

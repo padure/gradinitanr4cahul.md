@@ -63,7 +63,7 @@ return [
     |
     */
 
-    'logo' => '<b>Panoul de administrare</b>',
+    'logo' => '<b>Administreaza</b>',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -294,7 +294,7 @@ return [
         [
             'type'         => 'navbar-search',
             'text'         => 'search',
-            'topnav_right' => true,
+            'topnav_right' => false,
         ],
         [
             'type'         => 'fullscreen-widget',
@@ -302,7 +302,7 @@ return [
         ],
 
         // Sidebar items:
-        ['header' => 'SETARI PAGINI'],
+        ['header' => 'PAGINI'],
         [
             'text'      => 'Pagina Acasa',
             'icon'      => 'fas fa-home',
@@ -311,6 +311,12 @@ return [
                     'text' => 'Slideshow',
                     'url'  => 'slideshows',
                     'icon' => 'fas fa-image',
+                    'icon_color' => 'yellow',
+                ],
+                [
+                    'text' => 'Grupele noastre',
+                    'url'  => 'groups',
+                    'icon' => 'fas fa-object-group',
                     'icon_color' => 'yellow',
                 ],
             ],
@@ -330,7 +336,7 @@ return [
                             'icon'      => 'fas fa-tags',
                         ],
                         [
-                            'text' => 'Evenimente',
+                            'text' => 'Articole',
                             'url'  => 'events',
                             'icon'      => 'fas fa-book',
                         ]
@@ -345,68 +351,61 @@ return [
             ],
         ],
         [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
+            'text'      => 'Echipa noastra',
+            'icon'      => 'fas fa-users',
+            'submenu'   => [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'Gestioneaza',
+                    'url'  => 'teams',
+                    'icon'      => 'fas fa-user-plus',
+                    'icon_color' => 'yellow',
                 ],
             ],
         ],
-        ['header' => 'labels'],
         [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
+            'text'      => 'Cadrul legislativ',
+            'icon'      => 'fas fa-book-open',
+            'submenu'   => [
+                [
+                    'text' => 'Acte',
+                    'url'  => 'laws',
+                    'icon'      => 'fas fa-book-medical',
+                    'icon_color' => 'yellow',
+                ],
+                [
+                    'text' => 'Categorii acte',
+                    'url'  => 'sections',
+                    'icon'      => 'fas fa-tags',
+                    'icon_color' => 'yellow',
+                ],
+            ],
         ],
         [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
+            'text'      => 'Meniul',
+            'icon'      => 'fas fa-utensils',
+            'submenu'   => [
+                [
+                    'text' => 'Gestioneaza',
+                    'url'  => 'menus',
+                    'icon'      => 'fas fa-plus',
+                    'icon_color' => 'yellow',
+                ],
+            ],
         ],
         ['header' => 'account_settings'],
         [
+            'text' => 'Profilul gradinita',
+            'url'  => 'settings',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
             'text' => 'profile',
-            'url'  => 'admin/settings',
+            'url'  => 'profile',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'change_password',
-            'url'  => 'admin/settings',
+            'url'  => 'change_password',
             'icon' => 'fas fa-fw fa-lock',
         ],
     ],

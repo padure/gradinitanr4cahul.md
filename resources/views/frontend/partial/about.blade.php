@@ -11,9 +11,8 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="d-flex align-items-center">
-                            <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 45px; height: 45px;">
                             <div class="ms-3">
-                                <h6 class="text-primary mb-1">Ion Popescu</h6>
+                                <h6 class="text-primary mb-1">{{ $settings->director??"Popescu Ion" }}</h6>
                                 <small>Director</small>
                             </div>
                         </div>
