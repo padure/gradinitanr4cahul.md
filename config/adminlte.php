@@ -392,6 +392,23 @@ return [
                 ],
             ],
         ],
+        [
+            'text'      => 'Programul zilei',
+            'icon'      => 'fas fa-calendar-day',
+            'submenu'   => [
+                [
+                    'text' => 'Gestioneaza',
+                    'url'  => 'regimes',
+                    'icon'      => 'fas fa-plus',
+                    'icon_color' => 'yellow',
+                ],
+            ],
+        ],
+        [
+            'text' => 'Mesaje contacte',
+            'url'  => 'messages',
+            'icon' => 'fas fa-fw fa-user',
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'Profilul gradinita',

@@ -9,7 +9,9 @@
     use App\Http\Controllers\TeamController;
     use App\Http\Controllers\LawController;
     use App\Http\Controllers\MenuController;
+    use App\Http\Controllers\RegimeController;
     use App\Http\Controllers\SectionController;
+    use App\Http\Controllers\MessageController;
     use App\Http\Controllers\EventCategoryController;
     use App\Http\Controllers\GalleryCategoryController;
     
@@ -23,7 +25,9 @@
         Route::resource('teams', TeamController::class);
         Route::resource('laws', LawController::class);
         Route::resource('menus', MenuController::class);
+        Route::resource('regimes', RegimeController::class);
         Route::resource('sections', SectionController::class);
+        Route::resource('messages', MessageController::class);
         Route::resource('event-category', EventCategoryController::class);
         Route::post('/gallery-category', [GalleryCategoryController::class, 'store'])
             ->name('gallery.category');

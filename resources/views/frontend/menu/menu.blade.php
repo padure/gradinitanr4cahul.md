@@ -6,6 +6,10 @@
         $menu = "active";
     }
 @endphp
+
+@section('meta_description', 'Grădinița nr 4 Zîmbetul Cahul')
+@section('meta_keywords', 'Grădinița nr 4 Zîmbetul Cahul, Grădinița Cahul, Grădinița Zîmbetul, Grădinița Cahul, Grădinița nr 4, {{ $settings->str??"" }}')
+
 @section('content')
     <!-- Page Header End -->
         @include( 'frontend.partial.header', ['data' => 'Meniul'] )
@@ -18,7 +22,7 @@
                 <h1 class="mb-3">{{ $menuFile->nume }}</h1>
                 <p>{{ $menuFile->descriere }}</p>
             </div>
-            <div class="row g-5 align-items-center">
+            <div class="row g-5 align-items-center wow fadeInUp" data-wow-delay="0.1s">
                 <embed  src="{{ asset(env('UPLOADS_MENU') . $menuFile->file) }}" width="100%" height="1200px" type="application/pdf">
             </div>
         </div>

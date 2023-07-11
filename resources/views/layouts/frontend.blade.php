@@ -62,7 +62,7 @@
                         <a href="{{ route('galerie.index')}}" class="dropdown-item">Galerie</a>
                     </div>
                 </div>
-                <a href="{{ route('regime.index')}}" class="nav-item nav-link {{ $regime??"" }}">Regimul zilei</a>
+                <a href="{{ route('regime.index')}}" class="nav-item nav-link {{ $regime??"" }}">Programul zilei</a>
                 <a href="{{ route('menu.index')}}" class="nav-item nav-link {{ $menu??"" }}">Meniul</a>
                 <a href="{{ route('contacts.index')}}" class="nav-item nav-link {{ $contacts??"" }}">Contacte</a>
             </div>
@@ -79,30 +79,32 @@
             <div class="row g-5 m-auto">
                 <div class="col-lg-4 col-md-6">
                     <h3 class="text-white mb-4">Aici ne găsiți</h3>
-                    <p class="mb-2">Creșa-Grădiniță Nr.4 „Zimbetul” mun. Cahul</p>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>{{ $settings->str }}</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>{{ $settings->tf }}</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>{{ $settings->email }}</p>
+                    <p class="mb-2">Creșa-Grădiniță Nr.4 „Zîmbetul” mun. Cahul</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>{{ $settings->str??"" }}</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>{{ $settings->tf??"" }}</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>{{ $settings->email??"" }}</p>
                     <div class="d-flex pt-2">
-                        @if ($settings->twitter)
-                            <a class="btn btn-outline-light btn-social" href="{{ url($settings->twitter) }}" target="_blanck">
-                                <i class="fab fa-twitter"></i>
-                            </a> 
-                        @endif
-                        @if ($settings->facebook)
-                            <a class="btn btn-outline-light btn-social" href="{{ url($settings->facebook) }}" target="_blanck">
-                                <i class="fab fa-facebook-f"></i>
-                            </a> 
-                        @endif
-                        @if ($settings->youtube)
-                            <a class="btn btn-outline-light btn-social" href="{{ url($settings->youtube) }}" target="_blanck">
-                                <i class="fab fa-youtube"></i>
-                            </a> 
-                        @endif
-                        @if ($settings->linkedin)
-                            <a class="btn btn-outline-light btn-social" href="{{ url($settings->linkedin) }}" target="_blanck">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a> 
+                        @if ( $settings !== null )
+                            @if ($settings->twitter)
+                                <a class="btn btn-outline-light btn-social" href="{{ url($settings->twitter) }}" target="_blanck">
+                                    <i class="fab fa-twitter"></i>
+                                </a> 
+                            @endif
+                            @if ($settings->facebook)
+                                <a class="btn btn-outline-light btn-social" href="{{ url($settings->facebook) }}" target="_blanck">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a> 
+                            @endif
+                            @if ($settings->youtube)
+                                <a class="btn btn-outline-light btn-social" href="{{ url($settings->youtube) }}" target="_blanck">
+                                    <i class="fab fa-youtube"></i>
+                                </a> 
+                            @endif
+                            @if ($settings->linkedin)
+                                <a class="btn btn-outline-light btn-social" href="{{ url($settings->linkedin) }}" target="_blanck">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a> 
+                            @endif
                         @endif
                     </div>
                 </div>
@@ -132,15 +134,15 @@
             <div class="copyright">
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="{{ route('home.index')}}">{{ config('app.name', 'Zambetul') }}</a>. {{ date('Y') }} Toate drepturile rezervate. 
-                        <br>Creată și întreținută de: <a class="border-bottom" href="#" target="_blank">SeeYou</a>
+                        &copy; <a class="border-bottom" href="{{ route('home.index')}}">{{ config('app.name', 'Zambetul') }}</a>. <br>
+                        {{ date('Y') }} Toate drepturile rezervate. Creată și întreținută de: <a class="border-bottom" href="#" target="_blank">SeeYou</a>
                     </div>
                     <div class="col-md-6 text-center text-md-end">
                         <div class="footer-menu">
                             <a href="{{ route('home.index')}}">Acasa</a>
                             <a href="{{ route('about.index')}}">Despre noi</a>
                             <a href="{{ route('contacts.index')}}">Contacte</a>
-                            <a href="#">Cookies</a>
+                            <a href="{{ route('login') }}">Autentificare</a>
                         </div>
                     </div>
                 </div>

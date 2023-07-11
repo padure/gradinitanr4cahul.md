@@ -81,7 +81,7 @@ class SettingController extends Controller
     public function destroy(Setting $setting)
     {
         $setting->delete();
-        return redirect()->route('setting.index')
+        return redirect()->route('settings.index')
         ->with('delete', 'Înregistrare ștearsă cu succes.');
     }
 }

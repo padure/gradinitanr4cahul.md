@@ -6,6 +6,8 @@
         $home = "active";
     }
 @endphp
+@section('meta_description', 'Grădinița nr 4 Zîmbetul Cahul')
+@section('meta_keywords', 'Grădinița nr 4 Zîmbetul Cahul, Grădinița Cahul, Grădinița Zîmbetul, Grădinița Cahul, Grădinița nr 4 ' . $settings->str??'')
 @section('content')
     <!-- Carousel Start -->
     <div class="container-fluid p-0 mb-5">

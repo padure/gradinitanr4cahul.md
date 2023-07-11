@@ -9,6 +9,9 @@
     }
 @endphp
 
+@section('meta_description', 'Grădinița nr 4 Zîmbetul Cahul')
+@section('meta_keywords', 'Grădinița nr 4 Zîmbetul Cahul, Grădinița Cahul, Grădinița Zîmbetul, Grădinița Cahul, Grădinița nr 4, {{ $settings->str??"" }}')
+
 @section('content')
     <!-- Page Header End -->
     <div class="container-xxl py-5 page-header bg-header-team position-relative mb-5">
@@ -32,7 +35,7 @@
             </div>
             <div class="row">
                 @forelse ($members as $member)
-                    <div class="col-lg-4 col-md-6 member-section">
+                    <div class="col-lg-4 col-md-6 member-section wow fadeInUp" data-wow-delay="0.1s">
                         <div class="row p-3">
                             <div class="bg-light text-dark p-2 d-flex align-items-center justify-content-center col">{{ $loop->iteration }}</div>
                             <div class="bg-light text-dark p-2 d-flex align-items-center justify-content-center col">{{ $member->nume }}</div>

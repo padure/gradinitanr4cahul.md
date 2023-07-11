@@ -3,6 +3,10 @@
 @section('meta')
     <link rel="stylesheet" href="{{ asset('lib/lightbox/css/lightbox.min.css') }}" >
 @endsection
+
+@section('meta_description', 'Grădinița nr 4 Zîmbetul Cahul')
+@section('meta_keywords', 'Grădinița nr 4 Zîmbetul Cahul, Grădinița Cahul, Grădinița Zîmbetul, Grădinița Cahul, Grădinița nr 4, {{ $settings->str??"" }}')
+
 @section('content')
     @php
         use Illuminate\Support\Str;
@@ -14,12 +18,12 @@
     <!-- Gallery Start -->
     <div class="container-fluid pt-5 pb-3">
         <div class="container">
-            <div class="text-center pb-2">
+            <div class="text-center pb-2 wow fadeInUp" data-wow-delay="0.1s">
                 <p class="section-title px-5"><span class="px-2">Galeria Noastră</span></p>
                 <h1 class="mb-4">Galeria Grădiniței Noastre</h1>
             </div>
             <div class="row">
-                <div class="col-12 text-center mb-2">
+                <div class="col-12 text-center mb-2 wow fadeInUp" data-wow-delay="0.1s">
                     <ul class="list-inline mb-4" id="portfolio-flters">
                         <li class="btn btn-outline-primary m-1 active"  data-filter="*">Toate</li>
                         @foreach ($categories as $categorie)
@@ -32,7 +36,7 @@
             </div>
             <div class="row portfolio-container">
                 @foreach ($images as $image)
-                    <div class="col-lg-4 col-md-6 mb-4 portfolio-item {{ Str::slug($image->galleryCategory()->get()->first()->name, '-'); }}">
+                    <div class="col-lg-4 col-md-6 mb-4 wow fadeInUp portfolio-item {{ Str::slug($image->galleryCategory()->get()->first()->name, '-'); }}" data-wow-delay="0.1s">
                         <div class="position-relative overflow-hidden mb-2">
                             <img class="img-fluid w-100 my-image" src="{{ env('UPLOADS_GALLERY') . $image->image }}" alt="">
                             <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">

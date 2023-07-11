@@ -12,6 +12,7 @@ use App\Models\Gallery;
 use App\Models\GalleryCategory;
 use App\Repositories\Team\TeamRepository;
 use App\Repositories\Menu\MenuRepository;
+use App\Repositories\Regime\RegimeRepository;
 use App\Repositories\Group\GroupRepository;
 use App\Repositories\Section\SectionRepository;
 
@@ -27,6 +28,7 @@ class FrontendController extends Controller
         protected EventRepository $eventRepository,
         protected TeamRepository $teamRepository,
         protected MenuRepository $menuRepository,
+        protected RegimeRepository $regimeRepository,
         protected GroupRepository $groupRepository,
         protected SectionRepository $sectionRepository,
     )
@@ -85,7 +87,9 @@ class FrontendController extends Controller
         ->with('menuFile', $menu->last());
     }
     public function regime(){
-        return view('frontend.regime.regime');
+        $regime = $this->regimeRepository->getAll();
+        return view('frontend.regime.regime')
+        ->with('regimeFile', $regime->last());
     }
     public function team(){
         $members = resolve(TeamRepository::class)->getAll();

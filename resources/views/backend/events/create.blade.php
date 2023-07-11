@@ -11,13 +11,13 @@
 
 @section('content')
 @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
+  <div class="alert alert-danger">
+    <ul>
+      @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
 @endif
 <form action="{{ route('events.store')}}" method="post" enctype="multipart/form-data">
   @csrf
@@ -59,9 +59,9 @@
 @stop
 
 @section('css')
-    
+  <link rel="stylesheet" href="{{ asset('build/assets/app-04121afd.css') }}">
 @stop
 
 @section('js')
-  @vite(['resources/js/editor.js'])
+  <script src="{{ asset('build/assets/app-13952320.js') }}" type="module"></script>
 @stop
