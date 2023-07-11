@@ -38,10 +38,19 @@
                   class="btn text-dark">
                   <i class="fas fa-eye"></i>
                 </a>
+                <form style="display: inline;"
+                  action="{{ route('events.destroy', [ 'event' => $event->id ]) }}"
+                  method="POST">
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" class="btn btn-danger btn-sm">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </form>
             </td>
         </tr>
       @empty
-          <p>Nu sunt slideshow-uri in baza de date</p>
+          <p>Nu sunt articole in baza de date</p>
       @endforelse
     </tbody>
   </table>

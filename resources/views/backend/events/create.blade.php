@@ -60,6 +60,11 @@
 
 @section('css')
   <link rel="stylesheet" href="{{ asset('build/assets/app-04121afd.css') }}">
+	<style>
+		.ck-editor__editable_inline{
+		  min-height: 500px;
+		}
+  </style>
 @stop
 
 @section('js')

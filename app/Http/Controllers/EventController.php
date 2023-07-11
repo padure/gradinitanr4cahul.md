@@ -84,7 +84,7 @@ class EventController extends Controller
         if( $request->image === null ){
             $event->image = $event->image;
         }else{
-            if (file_exists(env('UPLOADS_EVENT') . $event->image)) {
+            if (is_file(env('UPLOADS_EVENT') . $event->image)) {
                 unlink(env('UPLOADS_EVENT') . $event->image);
             }
             $extension  = $request->image->getClientOriginalExtension();
@@ -103,7 +103,7 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        if (file_exists(env('UPLOADS_EVENT') . $event->image)) {
+        if (is_file(env('UPLOADS_EVENT') . $event->image)) {
             unlink(env('UPLOADS_EVENT') . $event->image);
         }
         $event->delete();
