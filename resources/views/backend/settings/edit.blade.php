@@ -65,5 +65,5 @@
 @stop
 
 @section('js')
-  @vite(['resources/js/editor.js'])
+  
 @stop
